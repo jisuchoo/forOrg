@@ -2,22 +2,44 @@ import { useState, useEffect } from "react"
 import Login from "./pages/Login.jsx"
 import Search from "./pages/Search.jsx"
 
-export default function App(){
+export default function App() {
   const [user, setUser] = useState(null)
   const [isAdmin, setIsAdmin] = useState(false)
 
-  useEffect(()=>{
-    const saved = localStorage.getItem('hwg_current_user')
-    const savedAdmin = localStorage.getItem('hwg_is_admin') === 'true'
-    if(saved){
+  // 앱 처음 로드될 때 세션 값 확인
+  useEffect(() => {
+    const saved = sessionStorage.getItem('hwg_current_user')
+    const savedAdmin = sessionStorage.getItem('hwg_is_admin') === 'true'
+    if (saved) {
       setUser(saved)
       setIsAdmin(savedAdmin)
     }
-  },[])
+  }, [])
 
-  if(!user){
-    return <Login onLogin={(empno, admin)=>{ setUser(empno); setIsAdmin(admin) }}/>
+  // 로그아웃 함수
+  const handleLogout = () => {
+    sessionStorage.removeItem('hwg_current_user')
+    sessionStorage.removeItem('hwg_is_admin')
+    setUser(null)
+    setIsAdmin(false)
   }
 
-  return <Search currentUser={user} isAdmin={isAdmin} onLogout={()=>{setUser(null); setIsAdmin(false)}}/>
+  if (!user) {
+    return (
+      <Login
+        onLogin={(empno, admin) => {
+          setUser(empno)
+          setIsAdmin(admin)
+        }}
+      />
+    )
+  }
+
+  return (
+    <Search
+      currentUser={user}
+      isAdmin={isAdmin}
+      onLogout={handleLogout}
+    />
+  )
 }
