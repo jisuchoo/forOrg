@@ -1,4 +1,3 @@
-write(f"{root}/src/app.css", textwrap.dedent("""
 :root{
   --hanwha:#ff7f00;
   --hanwha-dark:#e67100;
@@ -158,4 +157,3 @@ button.secondary:hover{background:#545b62}
 .nav{
   display:flex; gap:8px; margin-bottom:12px;
 }
-"""))
