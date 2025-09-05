@@ -14,24 +14,20 @@ export default function AdminLogs(){
       return
     }
     setErr("")
-    const data = loadLogs()
-    setLogs(data)
+    setLogs(loadLogs())
   }
 
   return (
     <div className="card container-narrow">
       <h2>사용자 활동 로그</h2>
       <div className="row">
-        <input type="password" placeholder="관리자 비밀번호를 입력하세요." value={pw} onChange={e=>setPw(e.target.value)} onKeyDown={e=>e.key==='Enter'&&onLoad()}/>
+        <input type="password" placeholder="관리자 비밀번호 입력" value={pw} onChange={e=>setPw(e.target.value)} onKeyDown={e=>e.key==='Enter'&&onLoad()}/>
       </div>
       <div style={{display:'flex', gap:'8px'}}>
         <button onClick={onLoad}>로그 불러오기</button>
-        <button className="secondary" onClick={()=>nav('/search')}>검색화면으로 돌아가기</button>
+        <button className="secondary" onClick={()=>nav('/search')}>검색화면으로</button>
       </div>
       {err && <div className="error">{err}</div>}
-      <div className="meta">
-        전체 {logs.length}개 | 사용자 {new Set(logs.map(l=>l.empno)).size}명 | 로그인 {logs.filter(l=>l.action==='login').length}회 | 검색 {logs.filter(l=>l.action==='search').length}회
-      </div>
       <div className="results">
         {logs.length===0 && <div className="hint">로그 데이터가 없습니다.</div>}
         {logs.map((log, i)=>(
