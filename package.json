@@ -1,0 +1,18 @@
+"name": "branch-guide-app",
+  "private": True,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "csv:tojson": "node scripts/csv_to_json.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
