@@ -16,7 +16,9 @@ export default function Search({ currentUser, isAdmin, onLogout }){
 
   useEffect(()=>{
     fetch(DIS_URL+"?t="+Date.now(),{cache:"no-store"})
-      .then(r=>r.json()).then(setDiseases).catch(()=>setMsg("데이터 로드 실패"))
+      .then(r=>r.json())
+      .then(setDiseases)
+      .catch(()=>setMsg("데이터 로드 실패"))
   },[])
 
   const onSearch = ()=>{
@@ -45,21 +47,36 @@ export default function Search({ currentUser, isAdmin, onLogout }){
 
   return (
     <section className="screen">
-      <div className="user-info">
-        로그인: {currentUser}{isAdmin?" (관리자)":""}
-        <button className="logout" onClick={onLogout}>로그아웃</button>
-      </div>
-      <div className="app-title">신주안 SI 인수 가이드</div>
+      <div className="app-title">한화손보 유병자 인수 가이드</div>
       <div className="card container-narrow">
+        {/* 로그인 정보 + 로그아웃 버튼을 카드 상단으로 이동 */}
+        <div className="user-info" style={{
+          display:"flex",
+          justifyContent:"space-between",
+          alignItems:"center",
+          marginBottom:"1rem"
+        }}>
+          <span>로그인: {currentUser}{isAdmin?" (관리자)":""}</span>
+          <button className="logout" onClick={onLogout}>로그아웃</button>
+        </div>
+
         <h2>질병명 검색</h2>
-        <input value={q} onChange={e=>setQ(e.target.value)} placeholder="예시: 용종, 골절, 당뇨 등" onKeyDown={e=>e.key==='Enter'&&onSearch()}/>
+        <input
+          value={q}
+          onChange={e=>setQ(e.target.value)}
+          placeholder="예시: 용종, 골절, 당뇨 등"
+          onKeyDown={e=>e.key==='Enter'&&onSearch()}
+        />
         <button onClick={onSearch}>검색</button>
+
         {msg && <div className="hint">{msg}</div>}
+
         {results.length>0 ? (
           results.map((d,i)=><ResultCard key={i} d={d}/>)
         ):(
           <InsuranceContacts/>
         )}
+        
         <div className="meta">질병데이터 {diseases.length}건</div>
       </div>
     </section>
