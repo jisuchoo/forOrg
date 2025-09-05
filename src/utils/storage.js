@@ -1,4 +1,3 @@
-write(f"{root}/src/utils/storage.js", textwrap.dedent("""
 export function saveLog(empno, action, details = '') {
   const log = {
     empno: empno,
@@ -43,4 +42,3 @@ export default function ResultCard({ d }){
     </div>
   )
 }
-"""))
