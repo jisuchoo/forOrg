@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const EMP_URL = "/data/employees.json"
-const ADMIN = { empno: "8091768", password: "dcw8091" }
+const ADMIN = { empno: "8092960", password: "cjs1110" }
 
 export default function Login({ onLogin }){
   const [empno, setEmpno] = useState("")
@@ -44,7 +44,6 @@ export default function Login({ onLogin }){
         <button onClick={handleLogin}>로그인</button>
         {msg && <div className="error">{msg}</div>}
         <div className="meta">승인사번 {employees.length}건</div>
-        <div className="meta">Copyright 2025 하세봉</div>
       </div>
     </section>
   )
