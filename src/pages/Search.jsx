@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import ResultCard from "../components/ResultCard.jsx"
 import { saveLog } from "../utils/storage.js"
 import { useNavigate } from "react-router-dom"
@@ -60,11 +60,11 @@ export default function Search({ currentUser }){
         <button className="secondary" onClick={()=>nav('/admin')}>관리자 로그</button>
         <button className="secondary" onClick={logout}>로그아웃</button>
       </div>
-      <h2 style={{marginBottom:'.5rem'}}>질병명 검색</h2>
+      <h2>질병명 검색</h2>
       <div className="row">
         <input value={q} onChange={e=>setQ(e.target.value)} placeholder="예시: 용종, 골절, 당뇨 등" onKeyDown={e=>e.key==='Enter'&&onSearch()}/>
       </div>
-      <button onClick={onSearch} title="검색">검색</button>
+      <button onClick={onSearch}>검색</button>
       <div className="results">
         {q && filtered.length===0 && <div className="hint">검색 결과가 없습니다.</div>}
         {filtered.map((d, idx)=> <ResultCard key={idx} d={d} />)}
@@ -73,4 +73,3 @@ export default function Search({ currentUser }){
     </div>
   )
 }
-
