@@ -1,27 +1,23 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Login from "./pages/Login.jsx"
 import Search from "./pages/Search.jsx"
 
 export default function App(){
   const [user, setUser] = useState(null)
+  const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(()=>{
-    const saved = localStorage.getItem("empno")
-    if(saved) setUser({ empno: saved })
-  }, [])
+    const saved = localStorage.getItem('hwg_current_user')
+    const savedAdmin = localStorage.getItem('hwg_is_admin') === 'true'
+    if(saved){
+      setUser(saved)
+      setIsAdmin(savedAdmin)
+    }
+  },[])
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={
-          user ? <Navigate to="/search" replace /> : <Login onLogin={setUser} />
-        } />
-        <Route path="/search" element={
-          user ? <Search currentUser={user.empno} /> : <Navigate to="/" replace/>
-        } />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  if(!user){
+    return <Login onLogin={(empno, admin)=>{ setUser(empno); setIsAdmin(admin) }}/>
+  }
+
+  return <Search currentUser={user} isAdmin={isAdmin} onLogout={()=>{setUser(null); setIsAdmin(false)}}/>
 }
