@@ -47,7 +47,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;  /* 상단 정렬 */
   padding: 2rem 1rem;
 }
 
@@ -321,4 +321,8 @@ button.logout:hover { background: #218838; }
   .contact-item.small { font-size: 12px; }
   .insurance-card.small { padding: 8px; min-height: 120px; }
   .insurance-logo.small { width: 70px; height: 25px; }
+  .screen {
+    justify-content: flex-start;  /* 모바일은 위쪽 배치 */
+    padding-top: 40px;            /* 헤더와 조금 띄움 */
+  }
 }
