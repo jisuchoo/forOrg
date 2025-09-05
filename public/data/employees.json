@@ -1,0 +1,4 @@
+[
+  { "empno": "1001", "password": "abcd1234", "name": "추지수", "role": "manager" },
+  { "empno": "1002", "password": "pass2024", "name": "최연숙", "role": "user" }
+]
