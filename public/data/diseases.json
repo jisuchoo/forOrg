@@ -1,0 +1,29 @@
+[
+  {
+    "name": "암",
+    "acceptance": "거절",
+    "signature355": "-",
+    "treatmentDays": "-",
+    "surgery": "-",
+    "recurrence": "-",
+    "restrictions": "-"
+  },
+  {
+    "name": "갑상선암",
+    "acceptance": "서류심사",
+    "signature355": "-",
+    "treatmentDays": "-",
+    "surgery": "-",
+    "recurrence": "-",
+    "restrictions": "-"
+  },
+  {
+    "name": "고혈압",
+    "acceptance": "거절",
+    "signature355": "-",
+    "treatmentDays": "-",
+    "surgery": "-",
+    "recurrence": "-",
+    "restrictions": "-"
+  }
+]
