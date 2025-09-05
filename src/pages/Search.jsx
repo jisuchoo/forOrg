@@ -1,4 +1,3 @@
-write(f"{root}/src/pages/Search.jsx", textwrap.dedent("""
 import { useEffect, useMemo, useState } from "react"
 import ResultCard from "../components/ResultCard.jsx"
 import { saveLog } from "../utils/storage.js"
@@ -74,4 +73,4 @@ export default function Search({ currentUser }){
     </div>
   )
 }
-"""))
+
