@@ -312,18 +312,18 @@ button.logout:hover { background: #218838; }
 
 @media (max-width: 768px) {
   .screen {
-    justify-content: flex-start;  /* 모바일은 위쪽 배치 */
-    padding-top: 40px;            /* 헤더와 조금 띄움 */
+    justify-content: flex-start; /* 화면 위쪽 배치 */
+    padding-top: 40px;
   }
+
+  /* user-info 카드 안에서 보기 좋게 */
   .user-info {
-    position: static;       /* 플로팅 해제 */
-    margin-bottom: 10px;    /* 카드 안에서 위쪽에 여백 */
-    width: 100%;            /* 전체 폭 사용 */
-    justify-content: space-between; /* 아이디 왼쪽, 버튼 오른쪽 */
+    position: static !important;   /* 고정 해제 */
+    width: 100%;
+    font-size: 14px;
   }
-  .user-info button {
-    min-width: auto;
-    font-size: 13px;
+  .user-info button.logout {
+    font-size: 14px;
     padding: 6px 10px;
   }
 }
