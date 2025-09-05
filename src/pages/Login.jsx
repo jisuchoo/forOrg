@@ -1,4 +1,3 @@
-write(f"{root}/src/pages/Login.jsx", textwrap.dedent("""
 import { useEffect, useState } from "react"
 
 export default function Login({ onLogin }){
@@ -52,4 +51,4 @@ export default function Login({ onLogin }){
     </div>
   )
 }
-")))
+
