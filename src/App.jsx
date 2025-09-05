@@ -17,7 +17,7 @@ export default function App(){
   return (
     <BrowserRouter>
       <section className="screen">
-        <div className="app-title">한화손보 동창원 SI 인수 가이드</div>
+        <div className="app-title">신주안지점 SI 인수 가이드</div>
         <Routes>
           <Route path="/" element={
             user ? <Navigate to="/search" replace /> : <Login onLogin={setUser} />
