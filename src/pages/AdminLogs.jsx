@@ -1,4 +1,3 @@
-write(f"{root}/src/pages/AdminLogs.jsx", textwrap.dedent("""
 import { useState } from "react"
 import { loadLogs } from "../utils/storage.js"
 import { useNavigate } from "react-router-dom"
@@ -46,4 +45,3 @@ export default function AdminLogs(){
     </div>
   )
 }
-"""))
