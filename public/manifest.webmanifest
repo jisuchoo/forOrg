@@ -1,0 +1,9 @@
+{
+  "name": "신주안지점 SI 인수 가이드",
+  "short_name": "인수가이드",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#ff7f00",
+  "icons": []
+}
