@@ -1,4 +1,3 @@
-write(f"{root}/src/App.jsx", textwrap.dedent("""
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Login from "./pages/Login.jsx"
@@ -33,4 +32,3 @@ export default function App(){
     </BrowserRouter>
   )
 }
-")))
