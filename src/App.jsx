@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Login from "./pages/Login.jsx"
 import Search from "./pages/Search.jsx"
