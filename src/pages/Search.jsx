@@ -49,7 +49,7 @@ export default function Search({ currentUser, isAdmin, onLogout }){
         로그인: {currentUser}{isAdmin?" (관리자)":""}
         <button className="logout" onClick={onLogout}>로그아웃</button>
       </div>
-      <div className="app-title">한화손보 유병자 인수 가이드</div>
+      <div className="app-title">신주안 SI 인수 가이드</div>
       <div className="card container-narrow">
         <h2>질병명 검색</h2>
         <input value={q} onChange={e=>setQ(e.target.value)} placeholder="예시: 용종, 골절, 당뇨 등" onKeyDown={e=>e.key==='Enter'&&onSearch()}/>
