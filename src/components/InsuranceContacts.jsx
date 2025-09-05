@@ -1,19 +1,49 @@
-const COMPANIES = [
-  { company:"한화손해보험", callCenter:"1566-8000", fax:"0502-779-1004", termsUrl:"https://www.hwgeneralins.com/notice/ir/product-ing01.do" },
-  { company:"삼성화재", callCenter:"1588-5114", fax:"0505-162-0872", termsUrl:"https://www.samsungfire.com/vh/page/VH.HPIF0103.do" },
-  // ... (나머지 동일하게 추가)
-]
+import { useEffect, useState } from "react"
 
 export default function InsuranceContacts(){
+  const [list,setList] = useState([])
+
+  useEffect(()=>{
+    fetch("/data/insurances.json?t="+Date.now(),{cache:"no-store"})
+      .then(r=>r.json()).then(setList)
+  },[])
+
+  const grouped = {
+    손해보험: list.filter(c=>c.type==="손해보험" && !c.highlight),
+    생명보험: list.filter(c=>c.type==="생명보험"),
+    공제: list.filter(c=>c.type==="공제")
+  }
+  const hanwha = list.find(c=>c.highlight)
+
   return (
     <div className="insurance-section">
-      {COMPANIES.map((c,i)=>(
-        <div key={i} className="insurance-card small">
-          <div className="insurance-logo small">{c.company}</div>
-          <div className="insurance-info small">
-            <div className="contact-item small">📞 <a href={`tel:${c.callCenter.replace(/-/g,"")}`}>{c.callCenter}</a></div>
-            <div className="contact-item small">📄 {c.fax}</div>
-            <div className="contact-item small">📚 <a href={c.termsUrl} target="_blank">바로가기</a></div>
+      {hanwha && (
+        <div className="insurance-card hanwha">
+          <div className="insurance-logo">{hanwha.company}</div>
+          <div className="insurance-info">
+            <div className="insurance-contact">
+              <div className="contact-item">📞 <a href={`tel:${hanwha.callCenter.replace(/-/g,"")}`}>{hanwha.callCenter}</a></div>
+              <div className="contact-item">📄 {hanwha.fax}</div>
+              <div className="contact-item">📚 <a href={hanwha.termsUrl} target="_blank">바로가기</a></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {Object.entries(grouped).map(([cat, items])=>(
+        <div key={cat} className="insurance-category">
+          <h3>{cat}</h3>
+          <div className="insurance-grid">
+            {items.map((c,i)=>(
+              <div key={i} className="insurance-card small">
+                <div className="insurance-logo small">{c.company}</div>
+                <div className="insurance-info small">
+                  <div className="contact-item small">📞 <a href={`tel:${c.callCenter.replace(/-/g,"")}`}>{c.callCenter}</a></div>
+                  <div className="contact-item small">📄 {c.fax}</div>
+                  <div className="contact-item small">📚 <a href={c.termsUrl} target="_blank">바로가기</a></div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       ))}
