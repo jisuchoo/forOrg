@@ -281,7 +281,7 @@ button.logout:hover { background: #218838; }
   gap: 8px;
   font-size: 16px;
 }
-.contact-item.small { font-size: 13px; gap: 6px; }
+.contact-item.small { font-size: 14px; gap: 6px; }
 
 .contact-item a {
   color: var(--hanwha);
