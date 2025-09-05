@@ -36,7 +36,7 @@ export default function Login({ onLogin }){
 
   return (
     <section className="screen">
-      <div className="app-title">한화손보 유병자 인수 가이드</div>
+      <div className="app-title">신주안지점 SI 인수 가이드</div>
       <div className="card">
         <h2>로그인</h2>
         <div className="row"><input placeholder="코드 입력" value={empno} onChange={e=>setEmpno(e.target.value)} /></div>
