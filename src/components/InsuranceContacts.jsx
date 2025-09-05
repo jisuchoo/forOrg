@@ -22,9 +22,9 @@ export default function InsuranceContacts(){
           <div className="insurance-logo">{hanwha.company}</div>
           <div className="insurance-info">
             <div className="insurance-contact">
-              <div className="contact-item">📞 <a href={`tel:${hanwha.callCenter.replace(/-/g,"")}`}>{hanwha.callCenter}</a></div>
-              <div className="contact-item">📄 {hanwha.fax}</div>
-              <div className="contact-item">📚 <a href={hanwha.termsUrl} target="_blank">바로가기</a></div>
+              <div className="contact-item">📞 콜센터<a href={`tel:${hanwha.callCenter.replace(/-/g,"")}`}>{hanwha.callCenter}</a></div>
+              <div className="contact-item">📄 보험금청구{hanwha.fax}</div>
+              <div className="contact-item">📚 공시실<a href={hanwha.termsUrl} target="_blank">바로가기</a></div>
             </div>
           </div>
         </div>
@@ -38,11 +38,12 @@ export default function InsuranceContacts(){
               <div key={i} className="insurance-card small">
                 <div className="insurance-logo small">{c.company}</div>
                 <div className="insurance-info small">
-                  <div className="contact-item small">📞 <a href={`tel:${c.callCenter.replace(/-/g,"")}`}>{c.callCenter}</a></div>
-                  <div className="contact-item small">📄 {c.fax}</div>
-                  <div className="contact-item small">📚 <a href={c.termsUrl} target="_blank">바로가기</a></div>
+                  <div className="contact-item small">📞 콜센터<a href={`tel:${c.callCenter.replace(/-/g,"")}`}>{c.callCenter}</a></div>
+                  <div className="contact-item small">📄 보험금청구{c.fax}</div>
+                  <div className="contact-item small">📚 공시실<a href={c.termsUrl} target="_blank">바로가기</a></div>
                 </div>
               </div>
+              
             ))}
           </div>
         </div>
