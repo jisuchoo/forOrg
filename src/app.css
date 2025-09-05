@@ -327,4 +327,15 @@ button.logout:hover { background: #218838; }
     justify-content: flex-start;  /* 모바일은 위쪽 배치 */
     padding-top: 40px;            /* 헤더와 조금 띄움 */
   }
+  .user-info {
+    position: static;       /* 플로팅 해제 */
+    margin-bottom: 10px;    /* 카드 안에서 위쪽에 여백 */
+    width: 100%;            /* 전체 폭 사용 */
+    justify-content: space-between; /* 아이디 왼쪽, 버튼 오른쪽 */
+  }
+  .user-info button {
+    min-width: auto;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
 }
