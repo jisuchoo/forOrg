@@ -228,6 +228,7 @@ button.logout:hover { background: #218838; }
 .insurance-card.small {
   background: #fff;
   border: 1px solid var(--border);
+  font-size: 16px;   /* ← 추가, 카드 안의 기본 글자 크기 */
   border-radius: 12px;
   padding: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,.04);
@@ -271,8 +272,9 @@ button.logout:hover { background: #218838; }
 }
 .insurance-contact.small {
   flex-direction: column;
-  gap: 4px;
-  align-items: center;
+  gap: 8px;
+  align-items: center;   /* 기존: flex-start → center */
+  text-align: center;    /* 가운데 정렬 */
 }
 
 .contact-item {
@@ -281,7 +283,11 @@ button.logout:hover { background: #218838; }
   gap: 8px;
   font-size: 16px;
 }
-.contact-item.small { font-size: 14px; gap: 6px; }
+.contact-item.small { 
+  font-size: 15px;   /* 기존 13px → 15px */
+  gap: 8px;          /* 조금 넓게 */
+  justify-content: center; /* 가운데 정렬 */ 
+}
 
 .contact-item a {
   color: var(--hanwha);
