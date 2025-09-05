@@ -311,18 +311,7 @@ button.logout:hover { background: #218838; }
 }
 
 @media (max-width: 768px) {
-  /*
-  .insurance-card.hanwha {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .insurance-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .insurance-contact { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .contact-item.small { font-size: 12px; }
-  .insurance-card.small { padding: 8px; min-height: 120px; }
-  .insurance-logo.small { width: 70px; height: 25px; }
-  */
+
   .screen {
     justify-content: flex-start;  /* 모바일은 위쪽 배치 */
     padding-top: 40px;            /* 헤더와 조금 띄움 */
