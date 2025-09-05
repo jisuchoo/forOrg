@@ -7,7 +7,6 @@ export default function Login({ onLogin }){
   const [msg, setMsg] = useState("")
 
   useEffect(()=>{
-    // fetch employees.json from public/data
     async function load(){
       try{
         const res = await fetch(`/data/employees.json?t=${Date.now()}`, { cache:"no-store" })
@@ -46,9 +45,8 @@ export default function Login({ onLogin }){
         <div className="hint">사번과 비밀번호는 승인된 목록에 있어야 합니다.</div>
       </div>
       <button onClick={handleLogin}>로그인</button>
-      {msg && <div className="error" role="alert" aria-live="polite">{msg}</div>}
+      {msg && <div className="error" role="alert">{msg}</div>}
       <div className="meta">데이터: 승인사번 {employees.length}건</div>
     </div>
   )
 }
-
